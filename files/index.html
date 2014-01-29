@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+/* 
+ * Copyright (c) 2014 Michael Chaberski.
+ * All rights reserved.
+ * Distributed under BSD (3-clause) license.
+ */
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="/files/css/normalize.css">
+<link rel="stylesheet" type="text/css" href="/files/css/main.css">
+<title>Face Detector</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="/files/js/sprintf.js"></script>
+</head>
+<body>
+<div id="container">
+	<div id="header">ScrambleFace</div>
+    <div id="info-container">
+        <table>
+            <tr><td class="info-field-name">Load time</td><td class="info-field-value"><span id="load-time"></span></td></tr>
+            <tr><td class="info-field-name">Detection time</td><td class="info-field-value"><span id="detection-time"></span></td></tr>
+            <tr><td class="info-field-name">Image</td><td class="info-field-value"><span id="image-dim"></span></td></tr>
+            <tr><td class="info-field-name">Faces</td><td class="info-field-value"><span id="num-faces"></span></td></tr>
+        </table>
+        <div id="results-container"></div>
+    </div>
+	<div id="content">
+		<div id="viewport">
+			<div id="view-hint">Drag &amp; Drop Image Files</div>
+			<div id="view-horz"></div>
+			<div id="view-vtic"></div>
+            <div id="canvas-container">
+                <canvas id="output"></canvas>
+                <div id="face-boxes-container"></div>
+            </div>
+        </div>
+	</div>
+	<div id="footer"></div>
+	<div id="export-link-container">
+        <input type="file" id="file-selector" accept="image/*">
+		<form id="export-form" onsubmit="return exportScrambledImage();">
+				<input value="Scramble" type="submit" disabled="true" id="export"/>
+		</form>
+	</div>
+    <div id="notice">
+        Uploaded images are not retained. This application uses face detection
+        code from <a href="http://liuliu.me/ccv/js/nss/">liuliu.me/ccv/js/nss/</a>.
+    </div>
+</div>
+<div id="scramble-result-pane">
+</div>
+<script type="text/javascript" src="/files/js/ccv.js"></script>
+<script type="text/javascript" src="/files/js/face.js"></script>
+<script type="text/javascript" src="/files/js/modernizr.custom.01074.js"></script>
+<script type="text/javascript" src="/files/js/main.js"></script>
+</body>
+</html>
